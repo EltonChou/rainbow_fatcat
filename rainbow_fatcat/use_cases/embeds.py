@@ -13,7 +13,7 @@ def generate_weather_forecast_embeds(
     report_strs: List[str] = []
     for report in reports:
         eorzea_datetime = EorzeaTime(report.time.timestamp())
-        datetime_str = report.time.strftime("%m/%d %H:%M" if rich_lt else "%H:%M (%z)")
+        datetime_str = report.time.strftime("%m/%d %H:%M (%z)" if rich_lt else "%H:%M (%z)")
         rainbow_status = " :rainbow:" if report.has_rainbow else u""
         eorzea_time_str = f"`ET {eorzea_datetime.hour:02}:{eorzea_datetime.minute:02}`"
         local_time_str = f"`LT {datetime_str}`"
