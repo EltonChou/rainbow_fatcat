@@ -19,7 +19,7 @@ type-check: # Check the type.
 	mypy
 
 start: # Start the bot.
-	python main.py
+	python rainbow_fatcat/app.py
 
 build-image: lint type-check freeze # Build docker image.
 	docker build -t $(IMAGE_NAME) . --no-cache
