@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import List
 
 from EorzeaEnv import (EorzeaLang, EorzeaPlaceName, EorzeaRainbow, EorzeaTime,
@@ -6,6 +6,8 @@ from EorzeaEnv import (EorzeaLang, EorzeaPlaceName, EorzeaRainbow, EorzeaTime,
 from rainbow_fatcat.entities import WeatherReport
 
 RAINBOW_PERIOD_LIMIT = 500
+
+TZ = timezone(timedelta(hours=+8))
 
 
 def generate_weather_report(
@@ -26,7 +28,7 @@ def generate_weather_report(
         weather = EorzeaWeather.get_weather(raw_weather, lang)
         assert weather
         report = WeatherReport(
-            time=datetime.fromtimestamp(et.get_unix_time()),
+            time=datetime.fromtimestamp(et.get_unix_time(), tz=TZ),
             weather=weather,
             has_rainbow=the_rainbow.is_appear
         )
@@ -55,7 +57,7 @@ def generate_rainbow_report(
             assert weather
             if the_rainbow.is_appear:
                 report = WeatherReport(
-                    time=datetime.fromtimestamp(et.get_unix_time()),
+                    time=datetime.fromtimestamp(et.get_unix_time(), tz=TZ),
                     weather=weather,
                     has_rainbow=the_rainbow.is_appear
                 )
