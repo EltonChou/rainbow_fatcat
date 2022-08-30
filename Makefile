@@ -23,11 +23,15 @@ type-check: # Check the type.
 start: # Start the bot.
 	python rainbow_fatcat/app.py
 
-build-image: # Build docker image.
+build-image: babel-compile # Build docker image.
 	docker build -t $(IMAGE_NAME) . --no-cache
 
 run-image: # Run docker image.
-	docker run --env FATCAT_SECRET=${FATCAT_SECRET} $(IMAGE_NAME)
+	docker top $(IMAGE_NAME) || \
+	docker run -d --name $(IMAGE_NAME) --env FATCAT_SECRET=${FATCAT_SECRET} $(IMAGE_NAME)
+
+stop-container: # Stop container.
+	docker stop $(IMAGE_NAME)
 
 babel-extract: # Extract the strings need to be translated.
 	pybabel extract ${PROJECT_DIR} -o ${LOCALE_DIR}/base.pot
