@@ -1,0 +1,44 @@
+# Chinese translations for PROJECT.
+# Copyright (C) 2022 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-08-31 01:47+0800\n"
+"PO-Revision-Date: 2022-08-30 20:23+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"Language-Team: zh <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: rainbow_fatcat/app.py:23
+msgid "Forecast the weather."
+msgstr "天氣預報"
+
+#: rainbow_fatcat/app.py:29
+msgid "Predict the rainbow appearing time."
+msgstr "預測彩虹出現的時間"
+
+#: rainbow_fatcat/use_cases/interaction_message.py:34
+msgid "There is no rainbow in the future 500 weather cycles."
+msgstr "在未來的 500 個天氣轉換不會有彩虹出現。"
+
+#: rainbow_fatcat/use_cases/interaction_message.py:35
+msgid "The rainbow is impossible in"
+msgstr "這個區域不會有彩虹。"
+
+#: rainbow_fatcat/use_cases/interaction_message.py:42
+msgid "is not a valid place name."
+msgstr "沒有指定的區域的資料。"
+
+#: rainbow_fatcat/use_cases/interaction_message.py:43
+msgid "Supporting languages"
+msgstr "僅支援下列語言"
+

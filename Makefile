@@ -1,4 +1,6 @@
 IMAGE_NAME=rainbow-fatcat
+PROJECT_DIR=rainbow_fatcat
+LOCALE_DIR=${PROJECT_DIR}/locale
 
 .PHONY: help
 .SILENT:
@@ -21,8 +23,22 @@ type-check: # Check the type.
 start: # Start the bot.
 	python rainbow_fatcat/app.py
 
-build-image: lint type-check freeze # Build docker image.
+build-image: # Build docker image.
 	docker build -t $(IMAGE_NAME) . --no-cache
 
-run-image:
+run-image: # Run docker image.
 	docker run --env FATCAT_SECRET=${FATCAT_SECRET} $(IMAGE_NAME)
+
+babel-extract: # Extract the strings need to be translated.
+	pybabel extract ${PROJECT_DIR} -o ${LOCALE_DIR}/base.pot
+
+babel-init: # Initialize locale catelog.
+	for locale in ja en zh ; do \
+		pybabel init -l $$locale -i ${LOCALE_DIR}/base.pot -d ${LOCALE_DIR} ; \
+	done
+
+babel-compile: # Compile catelog.
+	pybabel compile -d ${LOCALE_DIR}
+
+babel-update: # Update catelog.
+	pybabel update -i ${LOCALE_DIR}/base.pot -d ${LOCALE_DIR}
