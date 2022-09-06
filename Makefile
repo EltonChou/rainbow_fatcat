@@ -46,3 +46,6 @@ babel-compile: # Compile catelog.
 
 babel-update: # Update catelog.
 	pybabel update -i ${LOCALE_DIR}/base.pot -d ${LOCALE_DIR}
+
+load-env: # Load environment variable from .env file.
+	export $(cat .env | xargs)
