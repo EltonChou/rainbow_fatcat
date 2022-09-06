@@ -26,7 +26,7 @@ start: # Start the bot.
 build-image: babel-compile # Build docker image.
 	docker build -t $(IMAGE_NAME) . --no-cache
 
-run-image: # Run docker image.
+run-image: load-env # Run docker image.
 	docker top $(IMAGE_NAME) || \
 	docker run -d --name $(IMAGE_NAME) --env FATCAT_SECRET=${FATCAT_SECRET} $(IMAGE_NAME)
 
@@ -48,4 +48,8 @@ babel-update: # Update catelog.
 	pybabel update -i ${LOCALE_DIR}/base.pot -d ${LOCALE_DIR}
 
 load-env: # Load environment variable from .env file.
-	export $(cat .env | xargs)
+	if [ -f ".env" ]; then \
+		export $(cat .env | xargs); \
+	else \
+		echo "kappa"; \
+	fi
