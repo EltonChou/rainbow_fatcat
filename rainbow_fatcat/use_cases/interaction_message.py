@@ -32,7 +32,7 @@ def forecast(
                     if len(reports):
                         return embed
                     return _("There is no rainbow in the future 500 weather cycles.")
-                return _("The rainbow is impossible in") + "`{place_name.value}`"
+                return _("The rainbow is impossible in") + f"`{place_name.value}`"
 
             reports = generate_weather_report(
                 place_name=place_name, lang=eorzea_lang, count=5)
