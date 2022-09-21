@@ -57,3 +57,8 @@ load-env: # Load environment variable from .env file.
 
 format: # Format the code.
 	black .
+
+update-deps:
+	poetry update;
+
+update-requirements: update-deps freeze
