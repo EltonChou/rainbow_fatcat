@@ -161,7 +161,7 @@ python-versions = "*"
 
 [[package]]
 name = "eorzeaenv"
-version = "2.2.6"
+version = "2.2.7"
 description = "Final Fantasy XIV weather & time tools."
 category = "main"
 optional = false
@@ -604,8 +604,8 @@ distlib = [
     {file = "distlib-0.3.6.tar.gz", hash = "sha256:14bad2d9b04d3a36127ac97f30b12a19268f211063d8f8ee4f47108896e11b46"},
 ]
 eorzeaenv = [
-    {file = "EorzeaEnv-2.2.6-py3-none-any.whl", hash = "sha256:cf87a5c9f2cd323aafb74f486b55c014abaeef13ba6f7f42e96fb1f3db4d98af"},
-    {file = "EorzeaEnv-2.2.6.tar.gz", hash = "sha256:cb9873400e6235c2370e19b846c2d78c4eec897ec6cf76ad3f9d4e1c772a56a7"},
+    {file = "EorzeaEnv-2.2.7-py3-none-any.whl", hash = "sha256:90f07f42df2397b031d0dacfd90f47d41e647ca08b390bca37162c9e542518a6"},
+    {file = "EorzeaEnv-2.2.7.tar.gz", hash = "sha256:8cb8e5ca9fb8144197e9eaa252f3f89703a8515085e25b2c810f11a7cbc7d112"},
 ]
 filelock = [
     {file = "filelock-3.8.0-py3-none-any.whl", hash = "sha256:617eb4e5eedc82fc5f47b6d61e4d11cb837c56cb4544e39081099fa17ad109d4"},

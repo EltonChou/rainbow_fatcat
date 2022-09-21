@@ -3,7 +3,7 @@ PROJECT_DIR=rainbow_fatcat
 LOCALE_DIR=${PROJECT_DIR}/locale
 
 .PHONY: help
-.SILENT:
+.SILENT: load-env
 
 help: # Show this help message.
 	@grep -E '^[a-zA-Z_-]+:.*?# .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?# "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -31,7 +31,8 @@ run-image: load-env # Run docker image.
 	docker run -d --name $(IMAGE_NAME) --env FATCAT_SECRET=${FATCAT_SECRET} $(IMAGE_NAME)
 
 stop-container: # Stop container.
-	docker stop $(IMAGE_NAME)
+	docker stop $(IMAGE_NAME) \
+	docker rm $(IMAGE_NAME)
 
 babel-extract: # Extract the strings need to be translated.
 	pybabel extract ${PROJECT_DIR} -o ${LOCALE_DIR}/base.pot
@@ -51,7 +52,7 @@ load-env: # Load environment variable from .env file.
 	if [ -f ".env" ]; then \
 		export $(cat .env | xargs); \
 	else \
-		echo "kappa"; \
+		echo "No .env file."; \
 	fi
 
 format: # Format the code.
