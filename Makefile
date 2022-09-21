@@ -53,3 +53,6 @@ load-env: # Load environment variable from .env file.
 	else \
 		echo "kappa"; \
 	fi
+
+format: # Format the code.
+	black .

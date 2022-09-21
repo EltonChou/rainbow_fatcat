@@ -21,14 +21,23 @@ async def on_ready():
 
 
 @cmd_tree.command(description=_("Forecast the weather."))
-async def weather(interaction: discord.Interaction, location: str, language: str = 'en'):
+async def weather(
+    interaction: discord.Interaction, location: str, language: str = "en"
+):
     msg = forecast(locale=interaction.locale, location=location, language=language)
     await interaction_response(interaction=interaction, message=msg)
 
 
 @cmd_tree.command(description=_("Predict the rainbow appearing time."))
-async def rainbow(interaction: discord.Interaction, location: str, language: str = 'en'):
-    msg = forecast(locale=interaction.locale, location=location, language=language, rainbow_only=True)
+async def rainbow(
+    interaction: discord.Interaction, location: str, language: str = "en"
+):
+    msg = forecast(
+        locale=interaction.locale,
+        location=location,
+        language=language,
+        rainbow_only=True,
+    )
     await interaction_response(interaction=interaction, message=msg)
 
 
@@ -36,5 +45,5 @@ def main():
     client.run(settings.secret)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

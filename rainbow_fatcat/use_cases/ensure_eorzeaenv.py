@@ -6,10 +6,7 @@ from EorzeaEnv.errors import EorzeaEnvError, InvalidEorzeaPlaceName
 
 def ensure_place_name(place_name: str) -> Optional[EorzeaPlaceName]:
     try:
-        eorzea_location = EorzeaPlaceName(
-            place_name=place_name,
-            strict=False
-        )
+        eorzea_location = EorzeaPlaceName(place_name=place_name, strict=False)
     except InvalidEorzeaPlaceName:
         return None
 
@@ -20,10 +17,12 @@ def ensure_place_name(place_name: str) -> Optional[EorzeaPlaceName]:
 
 
 LangMapping = {
-    'en': EorzeaLang.EN,
-    'ja': EorzeaLang.JA,
-    'de': EorzeaLang.DE,
-    'fr': EorzeaLang.FR
+    "en": EorzeaLang.EN,
+    "ja": EorzeaLang.JA,
+    "de": EorzeaLang.DE,
+    "fr": EorzeaLang.FR,
+    "ko": EorzeaLang.KO,
+    "cn": EorzeaLang.ZH_SC,
 }
 
 
