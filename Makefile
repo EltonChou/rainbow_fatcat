@@ -31,7 +31,7 @@ run-image: load-env # Run docker image.
 	docker run -d --name $(IMAGE_NAME) --env FATCAT_SECRET=${FATCAT_SECRET} $(IMAGE_NAME)
 
 stop-container: # Stop container.
-	docker stop $(IMAGE_NAME) \
+	docker stop $(IMAGE_NAME) && \
 	docker rm $(IMAGE_NAME)
 
 babel-extract: # Extract the strings need to be translated.
